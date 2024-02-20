@@ -21,7 +21,7 @@ void loop() {
   if (Serial.available() > 0) {
     char receivedChar = Serial.read();  // Read the received character
     
-    // Check if the received character is 'A' or 'P'
+    // Check if the received character is 'A' or 'P' or 'AP'
     switch (receivedChar) {
       case 'A':
         // Increase vibration1 and vibration3 intensity gradually
