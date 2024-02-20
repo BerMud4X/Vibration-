@@ -21,7 +21,7 @@ void loop() {
   if (Serial.available() > 0) {
     char receivedChar = Serial.read();  // Read the received character
     
-    // Check which key was pressed
+    // Check if the received character is 'A' or 'P'
     switch (receivedChar) {
       case 'A':
         // Increase vibration1 and vibration3 intensity gradually
@@ -36,6 +36,21 @@ void loop() {
         // Increase vibration2 and vibration4 intensity gradually
         if (vibration2Intensity < 255) {
           vibration2Intensity++;  // Increase intensity
+        }
+        if (vibration4Intensity < 255) {
+          vibration4Intensity++;  // Increase intensity
+        }
+        break;
+      case 'AP':
+        // Increase intensity of all vibrations simultaneously
+        if (vibration1Intensity < 255) {
+          vibration1Intensity++;  // Increase intensity
+        }
+        if (vibration2Intensity < 255) {
+          vibration2Intensity++;  // Increase intensity
+        }
+        if (vibration3Intensity < 255) {
+          vibration3Intensity++;  // Increase intensity
         }
         if (vibration4Intensity < 255) {
           vibration4Intensity++;  // Increase intensity
@@ -67,3 +82,4 @@ void loop() {
   // Wait for 0.5 seconds
   delay(500);
 }
+
